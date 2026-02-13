@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You ❤️</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      color: #333;
+      overflow-x: hidden;
+    }
+    h1 { font-size: 2.5em; }
+    .gifts {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .gift {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      width: 160px;
+      cursor: pointer;
+      font-size: 1.2em;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    .gift:hover { transform: scale(1.05); }
+    .content { margin-top: 30px; font-size: 1.3em; }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .yes { background: #ff4d6d; color: white; }
+    .no { background: #ccc; }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatUp 3s linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-500px) rotate(45deg); opacity: 0; }
+    }
+    audio { display: none; }
+  </style>
+</head>
+<body>
+
+<h1>My Dear Cupcake ❤️</h1>
+<p>Warning: This page contains feelings.</p>
+
+<div class="gifts">
+  <div class="gift" id="gift1" onclick="gift1()">🎁 Gift 1</div>
+  <div class="gift" id="gift2" onclick="gift2()">🎁 Gift 2</div>
+  <div class="gift" id="gift3" onclick="gift3()">🎁 Gift 3</div>
+</div>
+
+<div class="content" id="content"></div>
+
+<!-- Romantic music -->
+<audio id="music" loop>
+  <source src="romantic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // ====== CHANGE THESE ======
+  const yourNumber = "9779863455332"; // WhatsApp number with country code
+  const herName = "Prasu"; // Optional: dynamically show her name
+  // ==========================
+
+  let gift1Opened = false;
+
+  function playMusic() {
+    const music = document.getElementById('music');
+    music.play();
+  }
+
+  function createHearts() {
+    for(let i=0;i<30;i++){
+      const heart = document.createElement('div');
+      heart.className='heart';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.animationDuration = (2 + Math.random()*3) + 's';
+      document.body.appendChild(heart);
+      setTimeout(()=>{ heart.remove(); }, 4000);
+    }
+  }
+
+  function gift1() {
+    gift1Opened = true;
+    document.getElementById("content").innerHTML = `
+      <p>Will you be my Valentine, ${herName}? 💖</p>
+      <button class="yes" onclick="yes()">Yes</button>
+      <button class="no" onclick="no()">No</button>
+    `;
+  }
+
+  function yes() {
+    playMusic();
+    createHearts();
+    confetti({
+      particleCount: 300,
+      spread: 120,
+      origin: { y: 0.6 }
+    });
+
+    document.getElementById("content").innerHTML = `
+      <h2>Yayyy!! 💕🎉</h2>
+      <p> That's my girl. I knew it. Guess what??? You just unlocked premium boyfriend mode. ❤️</p>
+      <img src="celebration1.gif" width="300">
+      <img src="celebration2.gif" width="300">
+    `;
+
+    setTimeout(() => {
+      window.open(
+        `https://wa.me/${yourNumber}?text=She%20clicked%20YES%20💖%20and%20is%20my%20Valentine!`,
+        "_blank"
+      );
+    }, 1200);
+  }
+
+  function no() {
+    document.getElementById("content").innerHTML = `
+      <p>Okay… I’ll still keep smiling 😊</p>
+    `;
+    window.open(
+      `https://wa.me/${yourNumber}?text=She%20clicked%20NO%20😅`,
+      "_blank"
+    );
+  }
+
+  function gift2() {
+    if(!gift1Opened) {
+      alert("Oops Baby! Open Gift 1 first ❤️");
+      return;
+    }
+    document.getElementById("content").innerHTML = `
+      <p>To the Cupcake who clicked this 🎀
+
+First of all…
+why are you smiling already?
+I can literally feel it from here 😌✨
+
+Before you continue reading, please check your pulse. Since you are MBBS second year and all that. Because what I am about to say might increase heart rate slightly. Okay roll, camera and action.......,<br><br>
+Out of all the gifts you could open tonight,<br>
+you chose this one.<br>		
+Which means destiny is still working properly.<br>
+Because this one contains me. ❤️<br>
+
+Now let’s talk about you.<br>
+
+You are small.<br>
+But not small-small.<br>
+You are dangerous-small.<br>
+
+The kind of small that looks cute<br>
+but can completely control one tall overthinking boy<br>
+from kilometers away.<br>
+
+Tell me something honestly.<br>
+How does one human being<br>
+manage to be this pretty<br>
+and this caring<br>
+at the same time?<br>
+
+It feels illegal.<br>
+
+Sometimes I look at your pictures and genuinely think,<br>
+“Did heaven misplace something?” 😇<br>
+
+But then you complain about something random<br>
+and I relax.<br>
+Okay yes. She’s human.<br>
+My human. 😌<br><br>
+
+You know what I love most?<br>
+
+Not just your face.<br>
+Not just your smile.<br>
+
+It’s the way you try.<br>
+
+You try when you’re tired.<br>
+You try when you’re stressed.<br>
+You try when I don’t even deserve it.<br>
+
+And that effort?<br>
+It hits harder than any Valentine gift ever could.<br>
+
+Also let me confess something slightly embarrassing.<br>
+
+Whenever you say “hmmm”<br>
+or pretend to be mad,<br>
+I don’t get scared.<br>
+
+I get entertained.<br>
+
+Because even your complaints sound cute.<br>
+Like a tiny manager reviewing my boyfriend performance.<br>
+And yes, I know my rating needs improvement 😌📈<br>
+
+But I’m not going anywhere.<br>
+
+You see, people talk about love like it’s fireworks.<br>
+Loud. Dramatic.<br>
+
+With you it feels different.<br>
+
+It feels like building something quietly.<br>
+Brick by brick.<br>
+Call by call.<br>
+Message by message.<br>
+
+And I like that.<br>
+I like us.<br>
+
+You, studying hard.<br>
+Me, missing you randomly.<br>
+Both pretending to be mature.<br>
+
+But still smiling like idiots when we see each other.<br>
+
+And let me tell you something bold tonight.<br>
+
+You are not just my present.<br>
+You are my future plan.<br>
+
+The kind I don’t joke about.<br>
+
+Aba xitai I'm trying my best to come to Pokhara.<br>
+
+And when that day comes,<br>
+don’t act surprised<br>
+if I look at you like<br>
+I still can’t believe<br>
+this beautiful cupcake chose me. 🧁❤️<br>
+
+Happy Valentine’s Day, my tiny giant heart.<br>
+
+If you’re blushing right now,<br>
+good!!!!<br>
+
+That means the poem worked. 😌🦋✨ 
+What you say??<br>
+      </p>
+    `;
+  }
+
+  function gift3() {
+    if(!gift1Opened) {
+      alert("Oops Baby! Open Gift 1 first ❤️");
+      return;
+    }
+    document.getElementById("content").innerHTML = `
+      <p>
+        No matter what today brings,<br>
+        I’m really glad I met you ❤️
+      </p>
+    `;
+  }
+</script>
+
+</body>
+</html>
